@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(){
   console.log(import.meta.env.VITE_FRONTEND_URL);
+  console.log('Hello, World!');
    return(
     <>
 
