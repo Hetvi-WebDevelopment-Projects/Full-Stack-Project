@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.log(err))
 
 app.get("/", (req, res)=> {
-    res.send("API is working");
+    res.json(data);
 });
 
 app.post('/submit' , async (req,res) => {
@@ -55,10 +55,10 @@ app.post('/submit' , async (req,res) => {
     }
 })
 
-mongoose
+{/*mongoose
     .connect("mongodb://localhost:27017/eventDBs")
     .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.log("MongoDB error: ", err));
+    .catch((err) => console.log("MongoDB error: ", err));*/}
 
 app.listen(3000, ()=>{
     console.log("Server Started on port 3000")
