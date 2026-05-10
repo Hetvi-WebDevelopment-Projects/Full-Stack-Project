@@ -22,9 +22,14 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
-app.get("/", (req, res)=> {
-    res.json(data);
-});
+app.get("/", async (req, res) => {
+    try {
+        const data = await Event.find()
+        res.json(data)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})
 
 app.post('/submit' , async (req,res) => {
     try{
