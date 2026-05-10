@@ -1,7 +1,7 @@
 
 const express = require('express')
 const cors=require('cors')
-const bycrpt= require('bcrypt')
+const bcrypt= require('bcrypt')
 const mongoose= require('mongoose')
 const bodyParser= require('body-parser')
 
@@ -17,7 +17,6 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 mongoose.connect('mongodb://localhost:27017/eventDBs')
-mongoose.connect(mongoURI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
