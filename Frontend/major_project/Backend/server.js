@@ -1,4 +1,4 @@
-{/*import cors from "cors";*/}
+require('dotenv').config();
 const express = require('express')
 const cors=require('cors')
 const bycrpt= require('bcrypt')
@@ -17,8 +17,8 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 {/*mongoose.connect('mongodb://localhost:27017/eventDBs')*/}
-mongoose.connect(process.env.MONGO_URI)
-
+const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/eventDBs';
+mongoose.connect(mongoURI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
