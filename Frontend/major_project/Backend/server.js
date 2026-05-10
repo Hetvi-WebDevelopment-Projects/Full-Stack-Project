@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const express = require('express')
 const cors=require('cors')
 const bcrypt= require('bcrypt')
@@ -11,13 +11,15 @@ const app = express()
 
 
  app.use(cors({
-    origin:["http://localhost:5173", "https://outpro-india-gamma.vercel.app"]
+    origin:["http://localhost:5173", "https://outpro-india-gamma.vercel.app"],
+    methods: ["GET", "POST"],
+    credentials: true
 }))
 app.use(express.json())
 app.use(bodyParser.json())
 
 {/*mongoose.connect('mongodb://localhost:27017/eventDBs')*/}
-mongoose.Connection('process.env.MONGO_URI')
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
