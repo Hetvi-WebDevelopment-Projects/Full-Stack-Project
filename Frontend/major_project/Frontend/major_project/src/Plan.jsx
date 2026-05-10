@@ -21,7 +21,8 @@ function Plan(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch("http://localhost:3000/submit", {
+            {/*const res = await fetch("http://localhost:3000/submit",*/}
+            const res = await fetch("https://outpro-india-backend.onrender.com/submit",{
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
