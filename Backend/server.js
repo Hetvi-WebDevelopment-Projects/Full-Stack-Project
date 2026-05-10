@@ -23,6 +23,7 @@ mongoose.connect('mongodb://localhost:27017/eventDBs')
 
 app.get("/", (req, res)=> {
     res.send("API is working");
+    res.json(data);
 });
 
 app.post('/submit' , async (req,res) => {
