@@ -16,7 +16,7 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/eventDBs')
+mongoose.connect('mongodb+srv://Outpro-India-db:Oi_data@cluster0.qbuv4hj.mongodb.net/eventDBs')
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
