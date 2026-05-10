@@ -1,7 +1,7 @@
 
 const express = require('express')
 const cors=require('cors')
-const bycrpt= require('bcrypt')
+const bcrypt= require('bcrypt')
 const mongoose= require('mongoose')
 const bodyParser= require('body-parser')
 
@@ -11,13 +11,13 @@ const app = express()
 
 
  app.use(cors({
-    origin:"http://localhost:5173",
+    origin:["http://localhost:5173", "https://outpro-india-gamma.vercel.app"]
 }))
 app.use(express.json())
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/eventDBs')
-
+{/*mongoose.connect('mongodb://localhost:27017/eventDBs')*/}
+mongoose.Connection('process.env.MONGO_URI')
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err))
 
@@ -64,6 +64,11 @@ app.post('/submit' , async (req,res) => {
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log("MongoDB error: ", err));*/}
 
-app.listen(3000, ()=>{
+{/*app.listen(3000, ()=>{
     console.log("Server Started on port 3000")
-})
+})*/}
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server started");
+});
