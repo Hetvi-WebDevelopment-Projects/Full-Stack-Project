@@ -29,6 +29,9 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.get("/", async (req, res) => {
     try {
+
+        console.log("DB Name:", mongoose.connection.name);
+        console.log("Collection Name:", Event.collection.name);
         const data = await Event.find()
         res.json(data)
     } catch (error) {
