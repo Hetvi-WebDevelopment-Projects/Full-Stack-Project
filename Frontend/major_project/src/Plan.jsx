@@ -27,13 +27,6 @@ function Plan(){
             body: JSON.stringify(formData)
         })
 
-        {/*const text = await res.text(); 
-        console.log("Raw response from server:", text);
-
-        // Then try to parse it
-        const Data = JSON.parse(text);
-        // ... rest of your code*/}
-
             const data = await res.json();
             console.log("Success:" , data);
 

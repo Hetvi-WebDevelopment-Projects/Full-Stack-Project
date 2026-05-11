@@ -19,7 +19,7 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.json())
 
-console.log("MONGO_URI:", process.env.MONGO_URI)
+console.log("MONGO_URI:", typeof process.env.MONGO_URI)
 const PORT = process.nextTick.PORT || 3000;
 
 mongoose.connect(process.env.MONGO_URI)
