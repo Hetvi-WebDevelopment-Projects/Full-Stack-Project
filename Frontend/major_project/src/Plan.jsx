@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 function Plan(){
+
+    const API_URL=import.meta.env.VITE_FRONTEND_URL;
+
     const [formData, setFormData] = useState({
         Name: '',
         Email: '',
@@ -21,7 +24,7 @@ function Plan(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch("http://localhost:3000/submit", {
+            const res = await fetch("${API_URL}/submit", {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
