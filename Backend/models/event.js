@@ -22,4 +22,4 @@ location:{
     required: true,
 }
 })
-module.exports = mongoose.model("Event", eventSchema , process.env.Event);
+module.exports = mongoose.model("Event", eventSchema , "events");
