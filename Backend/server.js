@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 const express = require('express')
 const cors=require('cors')
 const bycrpt= require('bcrypt')
@@ -11,14 +11,20 @@ const app = express()
 
 
  app.use(cors({
-    origin:"http://localhost:5173",
+ origin:["http://localhost:5173",
+     "https://outpro-india-gamma.vercel.app"],
+     methods: ["GET","POST"],
+     credentials: true
 }))
 app.use(express.json())
 app.use(bodyParser.json())
 
-mongoose.connect('mongodb://localhost:27017/eventDBs')
+console.log("MONGO_URI:", process.env.MONGO_URI)
+const PORT = process.nextTick.PORT || 3000;
 
-.then(() => console.log("MongoDB Connected"))
+mongoose.connect(process.env.MONGO_URI)
+
+.then(() => console.log("MongoDB Atlas Connected"))
 .catch(err => console.log(err))
 
 app.get("/", async (req, res) => {
@@ -36,7 +42,7 @@ app.post('/submit' , async (req,res) => {
     const { name, email, eventName, date, location } = req.body
     console.log("Incomming: ",req.body)
     
-    if( !name || !email || !eventName || !date || !location ){
+    if(!name || !email || !eventName || !date || !location){
         return res.status(400).json({ message: "All Fields must be completed"})
     }   
             const newEvent = new Event({
@@ -64,6 +70,6 @@ app.post('/submit' , async (req,res) => {
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log("MongoDB error: ", err));*/}
 
-app.listen(3000, ()=>{
+app.listen(3000, () => {
     console.log("Server Started on port 3000")
 })

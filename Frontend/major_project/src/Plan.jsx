@@ -10,7 +10,7 @@ function Plan(){
     });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value, });
+       
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -26,6 +26,13 @@ function Plan(){
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         })
+
+        {/*const text = await res.text(); 
+        console.log("Raw response from server:", text);
+
+        // Then try to parse it
+        const Data = JSON.parse(text);
+        // ... rest of your code*/}
 
             const data = await res.json();
             console.log("Success:" , data);
