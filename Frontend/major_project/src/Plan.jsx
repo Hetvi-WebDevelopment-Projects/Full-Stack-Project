@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 function Plan(){
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        eventName: '',
-        date: '',
-        location: ''
+        Name: '',
+        Email: '',
+        EventName: '',
+        Date: '',
+        Location: ''
     });
 
     const handleChange = (e) => {
@@ -31,11 +31,11 @@ function Plan(){
             console.log("Success:" , data);
 
             setFormData({
-                name: '',
-                email: '', 
-                eventName: '',
-                date: '',
-                location: ''
+                Name: '',
+                Email: '', 
+                EventName: '',
+                Date: '',
+                Location: ''
             })
             alert(data.message)
         }
@@ -51,11 +51,11 @@ function Plan(){
         <div className="plan-header">
             <h1> Plan your Event</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required /><br/>
-                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required /><br/>
-                <input type="text" name="eventName" placeholder="Event Name" value={formData.eventName} onChange={handleChange} required /><br/>
-                <input type="date" name="date" value={formData.date} onChange={handleChange} required /><br/>
-                <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} required /><br/>
+                <input type="text" name="Name" placeholder="Name" value={formData.Name} onChange={handleChange} required /><br/>
+                <input type="email" name="Email" placeholder="Email" value={formData.Email} onChange={handleChange} required /><br/>
+                <input type="text" name="EventName" placeholder="Event Name" value={formData.EventName} onChange={handleChange} required /><br/>
+                <input type="date" name="Date" value={formData.Date} onChange={handleChange} required /><br/>
+                <input type="text" name="Location" placeholder="Location" value={formData.Location} onChange={handleChange} required /><br/>
                 <button type="submit" id='submit-btn'>Submit</button>
             </form>
             </div>

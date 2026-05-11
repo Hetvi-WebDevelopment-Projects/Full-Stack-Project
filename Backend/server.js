@@ -42,18 +42,18 @@ app.get("/", async (req, res) => {
 app.post('/submit' , async (req,res) => {
     try{
 
-    const { name, email, eventName, date, location } = req.body
+    const { Name, Email, EventName, Date, Location } = req.body
     console.log("Incomming: ",req.body)
     
-    if(!name || !email || !eventName || !date || !location){
+    if(!Name || !Email || !EventName || !Date || !Location){
         return res.status(400).json({ message: "All Fields must be completed"})
     }   
             const newEvent = new Event({
-                name,
-                email,
-                eventName, 
-                date,
-                location
+                Name,
+                Email,
+                EventName, 
+                Date,
+                Location
             })
 
             await newEvent.save()
