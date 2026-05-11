@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-name:{
+Name:{
     type:String,
     required:true,
 },
-email:{
+Email:{
     type:String,
     required:true,
 },
-eventName:{
+EventName:{
     type: String,
     required:true,
 },
-date:{
-    type:Date,
+Date:{
+    type: String,
     required: true,
 },
-location:{
+Location:{
     type: String,
     required: true,
 }
