@@ -24,7 +24,7 @@ function Plan(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch(`${import.meta.env.API_URL}/submit`, {
+            const res = await fetch(`${API_URL}/submit`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
