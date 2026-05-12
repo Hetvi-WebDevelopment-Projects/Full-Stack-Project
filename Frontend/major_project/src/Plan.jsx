@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 function Plan(){
 
-    const API_URL=import.meta.env.VITE_API_URL;
+    //const API_URL=import.meta.env.VITE_API_URL;
+
+    const API_URL = "https://outpro-india-hhlg.onrender.com";
 
     const [formData, setFormData] = useState({
         Name: '',
