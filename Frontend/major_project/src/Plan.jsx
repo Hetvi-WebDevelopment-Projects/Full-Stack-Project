@@ -24,13 +24,25 @@ function Plan(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const res = await fetch(`${API_URL}/submit`, {
+            const res = await fetch(`${import.meta.env.API_URL}/submit`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         })
 
-            const data = await res.json();
+          //const data = await res.json();
+          const text = await res.text();
+console.log("RAW RESPONSE:", text);
+
+let data;
+try {
+  data = JSON.parse(text);
+} catch (err) {
+  console.error("Invalid JSON response:", text);
+  return;
+}
+
+console.log("Success:", data);
             console.log("Success:" , data);
 
             setFormData({
