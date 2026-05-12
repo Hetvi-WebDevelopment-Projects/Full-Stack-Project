@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Plan(){
 
-    const API_URL=import.meta.env.VITE_FRONTEND_URL;
+    const API_URL=import.meta.env.VITE_API_URL;
 
     const [formData, setFormData] = useState({
         Name: '',
